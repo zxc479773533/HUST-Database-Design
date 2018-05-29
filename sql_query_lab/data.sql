@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: dblab01
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.32-MariaDB
+-- Server version	5.5.5-10.1.33-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `ACTOR`;
 CREATE TABLE `ACTOR` (
   `ACTID` int(11) NOT NULL,
   `ANAME` char(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `SEX` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `SEX` enum('男','女') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `BYEAR` int(11) DEFAULT NULL,
   PRIMARY KEY (`ACTID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -224,4 +224,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-20 12:18:28
+-- Dump completed on 2018-05-29 10:57:19

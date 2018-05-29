@@ -93,7 +93,7 @@ from (
 	group by FNAME
 ) as FMY, ONSHOW
 where FMY.FID=ONSHOW.FID
-group by FNAME;
+group by ONSHOW.FID;
 
 -- Question 12
 select FNAME, MIN_YEAR, min(MONTH) as MIN_MONTH, TID
@@ -104,13 +104,13 @@ from (
 	group by FNAME
 ) as FMY, ONSHOW
 where FMY.FID=ONSHOW.FID
-group by FNAME;
+group by ONSHOW.FID;
 
 -- Question 13
 select FNAME, count(FNAME)
 from FILM, ONSHOW
 where FILM.FID=ONSHOW.FID
-group by FNAME;
+group by ONSHOW.FID;
 
 -- Question 14
 select distinct DNAME
