@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: url(../img/background.gif);
+}
+
+.header {
+	height: 100px;
+	background: url(../img/header.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.main {
+	margin-top:10px;
+}
+
+.footer {
+	background: #f6f6f6;
+	border-top: 2px solid #468dcd;
+	margin: 10px -8px -8px -8px;
+	color: #999999;
+	text-align: center;
+	font-size: 13px;
+}
+
+.author {
+	color: #999999;
+	text-decoration: none;
+}

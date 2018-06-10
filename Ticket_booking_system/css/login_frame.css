@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+
+.login-frame {
+	margin: auto;
+	padding-top: 5px;
+	border: 1px ridge #00A3FF;
+	height: 510px;
+	width: 725px;
+}
+
+.tips {
+	float: left;
+	height: 500px;
+	width: 200px;
+}
+
+.login {
+	float: right;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-left: 1px solid rgb(187,187,187);
+	height: 500px;
+	width: 500px;
+}
+
+.regist {
+	margin: auto;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 500px;
+	width: 450px;
+}
+
+.lable {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	padding-right: 10px;
+	display: block;
+	float: left;
+	text-align: right;
+}
+
+.inputli {
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 0;
+	position: relative;
+}
+
+.inputtxt {
+	margin-top: 2px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	margin-right: 10px;
+}
+
+.login-button {
+	height: 30px;
+	width: 80px;
+	background-color: #00a7de;
+	color: #ffffff;
+	border: 1px solid #0381aa;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.regist-button {
+	height: 30px;
+	width: 80px;
+	background-color: #ffffff;
+	color: #555555;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.code {
+	background-image: url(code.jpg);
+	font-family: Arial;
+	font-style: italic;
+	color: Red;
+	border: 0;
+	padding: 2px 3px;
+	letter-spacing: 3px;
+	font-weight: bolder;   
+}  
+
+
+
+
+
+
+
+
+
+
