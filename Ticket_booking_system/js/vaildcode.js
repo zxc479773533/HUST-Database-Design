@@ -17,7 +17,7 @@ function createCode() {
 	}
 }
 
-function validate () {
+function validate() {
 	var inputCode = document.getElementById("validCode").value;
 	if(inputCode.length <=0) {
 		alert("请输入验证码！");

@@ -5,7 +5,7 @@
 	margin: auto;
 	padding-top: 5px;
 	border: 1px ridge #00A3FF;
-	height: 510px;
+	height: 610px;
 	width: 725px;
 }
 
@@ -29,12 +29,16 @@
 	float: left;
 	margin-left: 5px;
 	margin-right: 5px;
-	height: 500px;
-	width: 450px;
+	height: 600px;
+	width: 465px;
+}
+
+.must {
+	color: red;
 }
 
 .lable {
-	width: 80px;
+	width: 95px;
 	height: 30px;
 	line-height: 30px;
 	padding-right: 10px;

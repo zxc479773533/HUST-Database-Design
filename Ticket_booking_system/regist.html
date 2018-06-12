@@ -19,23 +19,32 @@
 					 <ul style="list-style-type: none;">
 					 	<li style="height: 20px;"></li>
 					 	<li style="margin-left: 90px;"><h2>新用户注册</h2></li>
-					 	<li class="inputli"><span class="lable">用户名：</span><input class="inputtxt" type="text" name="username" maxlength="12" style="width: 300px;"></li>
+					 	<li class="inputli"><span class="lable"><span class="must">* </span>用户名：</span><input class="inputtxt" type="text" name="username" maxlength="12" style="width: 300px;"></li>
 					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable">密码：</span><input class="inputtxt" type="text" name="password" maxlength="25" style="width: 300px;"></li>
+					 	<li class="inputli"><span class="lable"><span class="must">* </span>密码：</span><input class="inputtxt" type="password" name="password" maxlength="25" style="width: 300px;"></li>
 					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable">确认密码：</span><input class="inputtxt" type="text" name="password" maxlength="25" style="width: 300px;"></li>
+					 	<li class="inputli"><span class="lable"><span class="must">* </span>确认密码：</span><input class="inputtxt" type="password" name="password_again" maxlength="25" style="width: 300px;"></li>
+						<li style="height: 10px;"></li>
+						<li class="inputli"><span class="lable"><span class="must">* </span>性别：</span>
+							<select style="height:30px; width: 50px; text-align: center;">
+								<option value ="man">男</option>
+								<option value ="woman">女</option>
+							</select>
+						<li style="height: 10px;"></li>
+						<li class="inputli"><span class="lable"><span class="must">* </span>年龄：</span><input class="inputtxt" type="text" name="age" maxlength="25" style="width: 100px;"></li>
 					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable">邮箱：</span><input class="inputtxt" type="text" name="password" maxlength="25" style="width: 300px;"></li>
+					 	<li class="inputli"><span class="lable"><span class="must">* </span>邮箱：</span><input class="inputtxt" type="text" name="email" maxlength="25" style="width: 300px;"></li>
 					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable">手机号：</span><input class="inputtxt" type="text" name="password" maxlength="25" style="width: 300px;"></li>
+					 	<li class="inputli"><span class="lable"><span class="must">* </span>手机号：</span><input class="inputtxt" type="text" name="phone" maxlength="25" style="width: 300px;"></li>
 					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable">验证码：</span><input class="inputtxt" type="text" name="password" maxlength="25" style="width: 100px;"><input type="text" onClick="createCode()" readonly id="checkCode" style="height: 30px; width: 80px; cursor:pointer; border:0;"/><br /></li>
+						 <li class="inputli"><span class="lable"><span class="must">* </span>验证码：</span><input class="inputtxt" type="text" name="vaildcode" maxlength="25" style="width: 100px;">
+							<input type="text" onClick="createCode()" readonly id="checkCode" style="height: 30px; width: 80px; cursor:pointer; border:0;"/><br /></li>
 					 	<li style="height: 20px;"></li>
 					 	<li style="padding-left: 200px;"><input class="login-button" onclick="validate();" style="margin-left: 60px" type="submit" value="提交"></li>
 					 </ul>
 				</form>
 			</div>
-			<img style="float: right; width: 240px; height: 110px; margin-top: 160px; margin-right: 15px;" src="img/plane.png"/>
+			<img style="float: right; width: 230px; height: 110px; margin-top: 220px; margin-right: 15px;" src="img/plane.png"/>
 		</div>
 	</div>
 	<div class="footer">
