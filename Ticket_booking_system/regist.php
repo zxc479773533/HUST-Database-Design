@@ -114,4 +114,8 @@ Author: Pan Yue, zxc479773533@gmail.com
 			</div>
 			<img style="float: right; width: 230px; height: 110px; margin-top: 220px; margin-right: 15px;" src="img/plane.png"/>
 		</div>
-	</div>
+  </div>
+
+<?php
+  require_once('footer.php');
+?>
