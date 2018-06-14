@@ -9,49 +9,102 @@
 
 .content {
 	border: 1px ridge #00A3FF;
+	background: url(../img/background2.png);
 	margin: auto;
-	width: 1235px;
+	width: 935px;
 }
 
 .user_info {
 	float: left;
 	border: 1px ridge #00A3FF;
+	background: url(../img/background3.png);
 	margin: 5px 10px 5px 5px;
-	width: 400px;
-
+	width: 320px;
 }
 
 .query_result {
 	float: right;
 	border: 1px ridge #00A3FF;
 	margin: 5px 5px 5px 10px;
-	width: 800px;
+	width: 580px;
 }
 
 .info {
 	border: 1px ridge #00A3FF;
 	margin: 10px;
-	width: 380px;
-	height: 350px;
+	width: 300px;
+	height: 280px;
 }
 
 .functions {
 	border: 1px ridge #00A3FF;
 	margin: 5px;
-	width: 390px;
-	height: 600px;
+	width: 310px;
+	height: 620px;
 }
 
-.announcement {
+.banner {
 	border: 1px ridge #00A3FF;
 	margin: 15px;
-	width: 780px;
-	height: 250px;
+	width: 550px;
+	height: 200px;
+	position: relative;
+}
+
+.banner_btn {
+	width: 150px;
+	height: 18px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.banner_btn ul li {
+	background: #000000;
+	color: #ffffff;
+	list-style-type: none;
+	width: 18px;
+	height: 18px;
+	float: left;
+	border-radius: 9px;
+	text-align: center;
+	line-height: 18px;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.banner_btn ul li.one {
+	background: #ff9966;
 }
 
 .query {
 	border: 1px ridge #00A3FF;
 	margin: 5px;
-	width: 790px;
+	width: 570px;
 	height: 690px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
