@@ -25,6 +25,7 @@
 .query_result {
 	float: right;
 	border: 1px ridge #00A3FF;
+	background: url(../img/background3.png);
 	margin: 5px 5px 5px 10px;
 	width: 580px;
 }
@@ -84,16 +85,32 @@
 	height: 690px;
 }
 
+.today_flight {
+	font-family: '华文细黑';
+	text-align: center;
+	margin: 5px;
+	width: 560px;
+	border: 1px solid #aaaaaa;
+	border-spacing: 0;
+	font-size: 12px;
+}
 
+.today_flight th {
+	background: url(../img/table_tr_right.png) right center no-repeat;
+	height: 52px;
+	color: #ffffff;
+}
 
+.th_list {
+	background: url(../img/table_tr.png) top repeat-x;
+}
 
-
-
-
-
-
-
-
+.today_flight td {
+	height: 36px;
+	background: #eef1f8;
+	border-right: 1px solid #b0cedd;
+	border-top: 1px solid #b0cedd;
+}
 
 
 

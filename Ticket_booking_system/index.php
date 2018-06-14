@@ -1,0 +1,110 @@
+<!--
+HUST DBMS Design - index.php
+
+Author: Pan Yue, zxc479773533@gmail.com
+-->
+<?php
+  // Set page title
+  $page_title = "主页 | 服务";
+	require_once('header.php');
+	require_once('connectdb.php');
+?>
+<script type="text/javascript" src="js/banner.js"></script>
+<div class="header"></div>
+<div class="main">
+	<div class="content">
+		<div>
+			<marquee><span id="welcome">您好，欢迎来到机票预订系统，您可以根据您的需求搜索相应航班并预订机票。&nbsp;&nbsp;&nbsp;&nbsp;我们衷心地为您服务，客户的满意就是我们最大的期待</span></marquee>
+		</div>
+		<div class="user_info">
+			<div class="info">
+				<ul style="list-style-type: none; font-family: '华文细黑';">
+
+<?php
+	// check if user logined
+	if (!isset($_SESSION['user_id'])) {
+		echo '<li style="margin-top: 50px"><h2>当前未登录</h2></li>';
+		echo '<li style="margin-top:30px"></li>';
+		echo '<li>欢迎来到机票预定系统!</li>';
+		echo '<li style="height: 40px;"></li>';
+		echo '<li>';
+		echo '<a href="login.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="登录"></a>';
+		echo '<a href="regist.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="注册"></a>';
+		echo '</li>';
+		echo '</ul>';
+		echo '</div>';
+	} else {
+		// get ticket data in database
+		$userid = $_SESSION['user_id'];
+		$username = $_SESSION['user_name'];
+		$query = "SELECT Sex, Age FROM User WHERE Userid = '$userid'";
+		$data = mysqli_query($conn, $query);
+		$row = mysqli_fetch_array($data);
+		$usersex = $row['Sex'];
+		$userage = $row['Age'];
+		$query = "SELECT * FROM FlightReserve WHERE Userid = '$userid'";
+		$data = mysqli_query($conn, $query);
+		$ticket_num = mysqli_num_rows($data);
+		
+		echo '<li style="margin-left: -20px;"><h4>已登录用户</h4></li>';
+		echo '<li>用户名：'.$username.' <span style="background: #004CFF; border-radius: 5px; font-size: 12px; padding: 3px; color: white">普通用户</span></li>';
+		echo '<li style="height: 10px;"></li>';
+		echo '<li>性别：'.$usersex.'</li>';
+		echo '<li style="height: 10px;"></li>';
+		echo '<li>年龄：'.$userage.'</li>';
+		echo '<li style="height: 10px;"></li>';
+		echo '<li>待取票数：'.$ticket_num.'</li>';
+		echo '<li style="height: 20px;"></li>';
+		echo '<li>';
+		echo '<a href="editprofile.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="个人中心"></a>';
+		echo '<a href="logout.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
+		echo '</li>';
+		echo '</ul>';
+		echo '</div>';
+	}
+?>
+
+			<div class="functions">
+				<ul style="list-style-type: none;">
+					<li style="margin-left: -39px; margin-top: -10px; width: 310px; cursor: pointer;"><a href="#"><img src="img/regist_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/query_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/ticket_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/price_button.png"/></li>
+				</ul>
+			</div>
+			<br style="clear:both;"/>
+		</div>
+		<div class="query_result">
+			<div class="banner">
+				<div class=banner_pic>
+					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner1.png"/></a>
+					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner2.png"/></a>
+					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner3.png"/></a>
+				</div>
+				<div class="banner_btn">
+					<ul>
+						<li class="one">1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</div>
+			<div class="query">
+
+<?php
+	$query = "SELECT * FROM Flight WHERE DATE(Leavetime) = DATE(NOW()) LIMIT 15";
+	$data = mysqli_query($conn, $query);
+	echo '<table>';
+	
+?>
+
+			</div>
+			<br style="clear:both;"/>
+		</div>
+		<br style="clear:both;"/>
+	</div>
+</div>
+
+<?php
+  require_once('footer.php');
+?>

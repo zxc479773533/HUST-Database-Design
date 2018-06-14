@@ -67,54 +67,55 @@ Author: Pan Yue, zxc479773533@gmail.com
     $error_msg = "请输入所有必填信息！";
   }
 ?>
-  <script type="text/javascript" src="js/vaildcode.js"></script>
-  <div class="header"></div>
-  <div class="main">
-		<div class="login-frame">
-			<div class="regist" onLoad="createCode()">
-				<form id="login-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					 <ul style="list-style-type: none;">
-					 	<li style="height: 20px;"></li>
-					 	<li style="margin-left: 90px;"><h2>新用户注册</h2></li>
-					 	<li class="inputli"><span class="lable"><span class="must">* </span>用户名：</span><input class="inputtxt" type="text" name="username" maxlength="12" style="width: 300px;"></li>
-					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable"><span class="must">* </span>密码：</span><input class="inputtxt" type="password" name="password" maxlength="25" style="width: 300px;"></li>
-					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable"><span class="must">* </span>确认密码：</span><input class="inputtxt" type="password" name="password_again" maxlength="25" style="width: 300px;"></li>
-						<li style="height: 10px;"></li>
-						<li class="inputli"><span class="lable"><span class="must">* </span>性别：</span>
-							<select style="height:30px; width: 50px; text-align: center;" name="sex">
-								<option value ="man">男</option>
-								<option value ="woman">女</option>
-							</select>
-						<li style="height: 10px;"></li>
-						<li class="inputli"><span class="lable"><span class="must">* </span>年龄：</span><input class="inputtxt" type="text" name="age" maxlength="25" style="width: 100px;"></li>
-					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable"><span class="must">* </span>邮箱：</span><input class="inputtxt" type="text" name="email" maxlength="25" style="width: 300px;"></li>
-					 	<li style="height: 10px;"></li>
-					 	<li class="inputli"><span class="lable"><span class="must">* </span>手机号：</span><input class="inputtxt" type="text" name="phone" maxlength="25" style="width: 300px;"></li>
-					 	<li style="height: 10px;"></li>
-						<li class="inputli"><span class="lable"><span class="must">* </span>验证码：</span>
-							<input class="inputtxt" type="text" name="vaildcode" maxlength="25" style="width: 100px;">
-							<input type="text" onClick="createCode()" readonly id="vaildcode_again" style="height: 30px; width: 80px; cursor:pointer; border:0;"/><br />
-						</li>
-					 	<li style="height: 20px;"></li>
-						<li style="padding-left: 200px;">
-              <input class="login-button" onclick="validate();" style="margin-left: 30px" type="submit" value="提交">
-              <a href="login.php"><input class="regist-button" style="margin-left: 20px" type="button" value="返回"></a>
-            </li>
-						<li style="height: 10px;"></li>
-						<li style="text-align: center;">
-              <?php
-                echo '<p style="color: red;">'.$error_msg.'</p>';
-              ?>
-            </li>
-					 </ul>
-				</form>
-			</div>
-			<img style="float: right; width: 230px; height: 110px; margin-top: 220px; margin-right: 15px;" src="img/plane.png"/>
+
+<script type="text/javascript" src="js/vaildcode.js"></script>
+<div class="header"></div>
+<div class="main">
+	<div class="login-frame">
+		<div class="regist" onLoad="createCode()">
+			<form id="login-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				 <ul style="list-style-type: none;">
+				 	<li style="height: 20px;"></li>
+				 	<li style="margin-left: 90px;"><h2>新用户注册</h2></li>
+				 	<li class="inputli"><span class="lable"><span class="must">* </span>用户名：</span><input class="inputtxt" type="text" name="username" maxlength="12" style="width: 300px;"></li>
+				 	<li style="height: 10px;"></li>
+				 	<li class="inputli"><span class="lable"><span class="must">* </span>密码：</span><input class="inputtxt" type="password" name="password" maxlength="25" style="width: 300px;"></li>
+				 	<li style="height: 10px;"></li>
+				 	<li class="inputli"><span class="lable"><span class="must">* </span>确认密码：</span><input class="inputtxt" type="password" name="password_again" maxlength="25" style="width: 300px;"></li>
+					<li style="height: 10px;"></li>
+					<li class="inputli"><span class="lable"><span class="must">* </span>性别：</span>
+						<select style="height:30px; width: 50px; text-align: center;" name="sex">
+							<option value ="man">男</option>
+							<option value ="woman">女</option>
+						</select>
+					<li style="height: 10px;"></li>
+					<li class="inputli"><span class="lable"><span class="must">* </span>年龄：</span><input class="inputtxt" type="text" name="age" maxlength="25" style="width: 100px;"></li>
+				 	<li style="height: 10px;"></li>
+				 	<li class="inputli"><span class="lable"><span class="must">* </span>邮箱：</span><input class="inputtxt" type="text" name="email" maxlength="25" style="width: 300px;"></li>
+				 	<li style="height: 10px;"></li>
+				 	<li class="inputli"><span class="lable"><span class="must">* </span>手机号：</span><input class="inputtxt" type="text" name="phone" maxlength="25" style="width: 300px;"></li>
+				 	<li style="height: 10px;"></li>
+					<li class="inputli"><span class="lable"><span class="must">* </span>验证码：</span>
+						<input class="inputtxt" type="text" name="vaildcode" maxlength="25" style="width: 100px;">
+						<input type="text" onClick="createCode()" readonly id="vaildcode_again" style="height: 30px; width: 80px; cursor:pointer; border:0;"/><br />
+					</li>
+				 	<li style="height: 20px;"></li>
+					<li style="padding-left: 200px;">
+            <input class="login-button" onclick="validate();" style="margin-left: 30px" type="submit" value="提交">
+            <a href="login.php"><input class="regist-button" style="margin-left: 20px" type="button" value="返回"></a>
+          </li>
+					<li style="height: 10px;"></li>
+					<li style="text-align: center;">
+            <?php
+              echo '<p style="color: red;">'.$error_msg.'</p>';
+            ?>
+          </li>
+				 </ul>
+			</form>
 		</div>
-  </div>
+		<img style="float: right; width: 230px; height: 110px; margin-top: 220px; margin-right: 15px;" src="img/plane.png"/>
+	</div>
+</div>
 
 <?php
   require_once('footer.php');

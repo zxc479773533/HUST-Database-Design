@@ -17,5 +17,6 @@ Author: Pan Yue, zxc479773533@gmail.com
     }
   ?>
   <link href="css/header_footer.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
