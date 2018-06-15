@@ -1,4 +1,3 @@
-// JavaScript Document
 /*
  * HUST DBMS Design - validcode.js
  *

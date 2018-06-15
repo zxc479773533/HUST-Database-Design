@@ -1,4 +1,8 @@
-// JavaScript Document
+/*
+ * HUST DBMS Design - banner.js
+ *
+ * Author: Pan Yue, zxc479773533@gmail.com
+ */
  $(function () {
 	 
 	 $(".banner_btn ul li").hover(function () {

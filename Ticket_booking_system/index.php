@@ -77,10 +77,10 @@ Author: Pan Yue, zxc479773533@gmail.com
 			</div>
 			<div class="functions">
 				<ul style="list-style-type: none;">
-					<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="#"><img src="img/regist_button.png"/></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/query_button.png"/></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/ticket_button.png"/></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/price_button.png"/></li>
+					<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></li>
+					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></li>
 				</ul>
 			</div>
 			<br style="clear:both;"/>
