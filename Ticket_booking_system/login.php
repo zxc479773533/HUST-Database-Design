@@ -49,7 +49,7 @@ Author: Pan Yue, zxc479773533@gmail.com
     }
   }
   else {
-    $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/user.html';
+    $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/index.php';
     header('Location: '.$home_url);
   }
 ?>

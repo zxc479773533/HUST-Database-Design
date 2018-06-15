@@ -85,8 +85,8 @@ Author: Pan Yue, zxc479773533@gmail.com
 					<li style="height: 10px;"></li>
 					<li class="inputli"><span class="lable"><span class="must">* </span>性别：</span>
 						<select style="height:30px; width: 50px; text-align: center;" name="sex">
-							<option value ="man">男</option>
-							<option value ="woman">女</option>
+							<option value ="男">男</option>
+							<option value ="女">女</option>
 						</select>
 					<li style="height: 10px;"></li>
 					<li class="inputli"><span class="lable"><span class="must">* </span>年龄：</span><input class="inputtxt" type="text" name="age" maxlength="25" style="width: 100px;"></li>

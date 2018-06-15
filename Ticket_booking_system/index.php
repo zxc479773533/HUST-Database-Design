@@ -4,12 +4,25 @@ HUST DBMS Design - index.php
 Author: Pan Yue, zxc479773533@gmail.com
 -->
 <?php
+	session_start();
   // Set page title
   $page_title = "主页 | 服务";
 	require_once('header.php');
 	require_once('connectdb.php');
 ?>
+
 <script type="text/javascript" src="js/banner.js"></script>
+<script type="text/javascript">
+	$(function(){   
+    var leftHeight= $(".user_info").height();   
+    var rightHeight= $(".query_result").height();   
+    if (leftHeight > rightHeight) {   
+          $(".query_result").height(leftHeight);   
+    } else {   
+         $(".user_info").height(rightHeight);   
+    }   
+	});
+</script>
 <div class="header"></div>
 <div class="main">
 	<div class="content">
@@ -31,8 +44,6 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<a href="login.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="登录"></a>';
 		echo '<a href="regist.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="注册"></a>';
 		echo '</li>';
-		echo '</ul>';
-		echo '</div>';
 	} else {
 		// get ticket data in database
 		$userid = $_SESSION['user_id'];
@@ -59,14 +70,14 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<a href="editprofile.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="个人中心"></a>';
 		echo '<a href="logout.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
 		echo '</li>';
-		echo '</ul>';
-		echo '</div>';
 	}
 ?>
 
+				</ul>
+			</div>
 			<div class="functions">
 				<ul style="list-style-type: none;">
-					<li style="margin-left: -39px; margin-top: -10px; width: 310px; cursor: pointer;"><a href="#"><img src="img/regist_button.png"/></li>
+					<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="#"><img src="img/regist_button.png"/></li>
 					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/query_button.png"/></li>
 					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/ticket_button.png"/></li>
 					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="#"><img src="img/price_button.png"/></li>
@@ -90,14 +101,58 @@ Author: Pan Yue, zxc479773533@gmail.com
 				</div>
 			</div>
 			<div class="query">
+				<img style="margin-top:10px" src="img/today_flight.png"/>
+				<table class="today_flight">
+					<tr class="th_list">
+						<th width="30">ID</th>
+						<th width="50">商务舱</th>
+						<th width="50">经济舱</th>
+						<th width="70">起飞时间</th>
+						<th width="70">到达时间</th>
+						<th width="50">起点站</th>
+						<th width="50">终点站</th>
+						<th width="40">商务舱价格</th>
+						<th width="40">经济舱价格</th>
+						<th width="90">备注</th>
+					</tr>
 
 <?php
-	$query = "SELECT * FROM Flight WHERE DATE(Leavetime) = DATE(NOW()) LIMIT 15";
+	$query = "SELECT * FROM Flight WHERE DATE(Leavetime) = DATE(NOW()) order by Leavetime ASC LIMIT 15";
 	$data = mysqli_query($conn, $query);
-	echo '<table>';
-	
+	$count = 0;
+	//$rownum = mysqli_num_rows($data);
+	foreach($data as $queryline) {
+		$count += 1;
+		echo '<tr>';
+		if ($count % 2 == 0) {
+			echo '<td style="background: #ffffff">'.$queryline['Flightno'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['BClass'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['NClass'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['Leavetime'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['Arrivetime'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['StartStation'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['EndStation'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['BPrice'].'</td>';
+			echo '<td style="background: #ffffff">'.$queryline['NPrice'].'</td>';
+			echo '<td style="background: #ffffff">'.'预定'.'</td>';
+		}
+		else {
+			echo '<td>'.$queryline['Flightno'].'</td>';
+			echo '<td>'.$queryline['BClass'].'</td>';
+			echo '<td>'.$queryline['NClass'].'</td>';
+			echo '<td>'.$queryline['Leavetime'].'</td>';
+			echo '<td>'.$queryline['Arrivetime'].'</td>';
+			echo '<td>'.$queryline['StartStation'].'</td>';
+			echo '<td>'.$queryline['EndStation'].'</td>';
+			echo '<td>'.$queryline['BPrice'].'</td>';
+			echo '<td>'.$queryline['NPrice'].'</td>';
+			echo '<td>'.'预定'.'</td>';
+		}
+		echo '<tr/>';
+	}
 ?>
 
+				</table>
 			</div>
 			<br style="clear:both;"/>
 		</div>
