@@ -38,9 +38,15 @@ Author: Pan Yue, zxc479773533@gmail.com
   echo '<li class="inputli"><span class="lable">用户名：</span>'.$row['Username'].'</li>';
   echo '<li style="height: 10px;"></li>';
   echo '<li class="inputli"><span class="lable">性别：</span>';
-  echo '<select style="height:25px; width: 50px; text-align: center;" name="sex" selected="'.$row['Sex'].'">';
-  echo '<option value ="男">男</option>';
-  echo '<option value ="女">女</option>';
+  echo '<select style="height:25px; width: 50px; text-align: center;" name="sex">';
+  if ($row['Sex'] == "男") {
+    echo '<option value="男" selected="selected">男</option>';
+    echo '<option value="女">女</option>';
+  }
+  else {
+    echo '<option value="男">男</option>';
+    echo '<option value="女" selected="selected">女</option>';
+  }
   echo '</select>';
   echo '<li style="height: 10px;"></li>';
   echo '<li class="inputli"><span class="lable">年龄：</span><input class="inputtxt" type="text" name="age" maxlength="25" style="width: 100px;" value="'.$row['Age'].'"></li>';
