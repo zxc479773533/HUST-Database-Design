@@ -74,48 +74,48 @@ Author: Pan Yue, zxc479773533@gmail.com
 	}
 ?>
 
-				</ul>
-			</div>
-			<div class="functions">
-				<ul style="list-style-type: none;">
-					<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
-				</ul>
-			</div>
-			<br style="clear:both;"/>
+			</ul>
 		</div>
-		<div class="query_result">
-			<div class="banner">
-				<div class="banner_pic">
-					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner1.png"/></a>
-					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner2.png"/></a>
-					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner3.png"/></a>
-				</div>
-				<div class="banner_btn">
-					<ul>
-						<li class="one">1</li>
-						<li>2</li>
-						<li>3</li>
-					</ul>
-				</div>
+		<div class="functions">
+			<ul style="list-style-type: none;">
+				<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
+			</ul>
+		</div>
+		<br style="clear:both;"/>
+	</div>
+	<div class="query_result">
+		<div class="banner">
+			<div class="banner_pic">
+				<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner1.png"/></a>
+				<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner2.png"/></a>
+				<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner3.png"/></a>
 			</div>
-			<div class="query">
-				<img style="margin-top:10px" src="img/today_flight.png"/>
-				<table class="today_flight">
-					<tr class="th_list">
-						<th width="45">ID</th>
-						<th width="50">商务舱</th>
-						<th width="50">经济舱</th>
-						<th width="70">起飞时间</th>
-						<th width="70">到达时间</th>
-						<th width="50">起点站</th>
-						<th width="50">终点站</th>
-						<th width="40">商务舱价格</th>
-						<th width="40">经济舱价格</th>
-						<th width="75">备注</th>
-					</tr>
+			<div class="banner_btn">
+				<ul>
+					<li class="one">1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+		</div>
+		<div class="query">
+			<img style="margin-top:10px" src="img/today_flight.png"/>
+			<table class="flight">
+				<tr class="th_list">
+					<th width="45">ID</th>
+					<th width="50">商务舱</th>
+					<th width="50">经济舱</th>
+					<th width="70">起飞时间</th>
+					<th width="70">到达时间</th>
+					<th width="50">起点站</th>
+					<th width="50">终点站</th>
+					<th width="40">商务舱价格</th>
+					<th width="40">经济舱价格</th>
+					<th width="75">备注</th>
+				</tr>
 
 <?php
 	$query = "SELECT * FROM Flight WHERE DATE(Leavetime) = DATE(NOW()) order by Leavetime ASC LIMIT 15";
@@ -161,5 +161,6 @@ Author: Pan Yue, zxc479773533@gmail.com
 </div>
 
 <?php
+	mysqli_close();
   require_once('footer.php');
 ?>

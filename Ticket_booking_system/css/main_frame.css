@@ -92,7 +92,7 @@
 	height: auto;
 }
 
-.today_flight {
+.flight {
 	font-family: '华文细黑';
 	text-align: center;
 	margin: 5px;
@@ -102,7 +102,7 @@
 	font-size: 12px;
 }
 
-.today_flight th {
+.flight th {
 	background: url(../img/table_tr_right.png) right center no-repeat;
 	height: 52px;
 	color: #ffffff;
@@ -112,7 +112,7 @@
 	background: url(../img/table_tr.png) top repeat-x;
 }
 
-.today_flight td {
+.flight td {
 	height: 36px;
 	background: #eef1f8;
 	border-right: 1px solid #b0cedd;

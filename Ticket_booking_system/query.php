@@ -82,54 +82,54 @@ Author: Pan Yue, zxc479773533@gmail.com
   }
 ?>
 
-				</ul>
-			</div>
-			<div class="functions">
-				<ul style="list-style-type: none;">
-					<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
-					<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
-				</ul>
-			</div>
-			<br style="clear:both;"/>
+			</ul>
 		</div>
-		<div class="query_result">
-			<div class="select">
-				<form id="queryform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					<div class="query_input">
-						<ul style="list-style-type: none;">
-							<li>
-								<span class="query_lable">起点站</span><input class="querytxt" type="text" name="LeaveStation" maxlength="12" style="width: 120px;">
-								<span class="query_lable">终点站</span><input class="querytxt" type="text" name="ArriveStation" maxlength="12" style="width: 120px;">
-							</li>
-							<li style="margin-top: 10px;"></li>
-							<li>
-								<span class="query_lable">起飞日期</span><input class="querytxt" type="date" name="LeaveDay" maxlength="12" style="width: 120px;">
-								<span class="query_lable">到达日期</span><input class="querytxt" type="date" name="ArriveDay" maxlength="12" style="width: 120px;">
-							</li>
-						</ul>
-					</div>
-					<div class="query_submit">
-						<input class="query_btn" type="submit" value="查询">
-					</div>
-				</form>
-			</div>
-			<div class="query">
-				<img style="margin-top:10px" src="img/flight_query.png"/>
-				<table class="today_flight">
-					<tr class="th_list">
-						<th width="45">ID</th>
-						<th width="50">商务舱</th>
-						<th width="50">经济舱</th>
-						<th width="70">起飞时间</th>
-						<th width="70">到达时间</th>
-						<th width="50">起点站</th>
-						<th width="50">终点站</th>
-						<th width="40">商务舱价格</th>
-						<th width="40">经济舱价格</th>
-						<th width="75">备注</th>
-					</tr>
+		<div class="functions">
+			<ul style="list-style-type: none;">
+				<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
+			</ul>
+		</div>
+		<br style="clear:both;"/>
+	</div>
+	<div class="query_result">
+		<div class="select">
+			<form id="queryform" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				<div class="query_input">
+					<ul style="list-style-type: none;">
+						<li>
+							<span class="query_lable">起点站</span><input class="querytxt" type="text" name="LeaveStation" maxlength="12" style="width: 120px;">
+							<span class="query_lable">终点站</span><input class="querytxt" type="text" name="ArriveStation" maxlength="12" style="width: 120px;">
+						</li>
+						<li style="margin-top: 10px;"></li>
+						<li>
+							<span class="query_lable">起飞日期</span><input class="querytxt" type="date" name="LeaveDay" maxlength="12" style="width: 120px;">
+							<span class="query_lable">到达日期</span><input class="querytxt" type="date" name="ArriveDay" maxlength="12" style="width: 120px;">
+						</li>
+					</ul>
+				</div>
+				<div class="query_submit">
+					<input class="query_btn" type="submit" value="查询">
+				</div>
+      </form>
+		</div>
+		<div class="query">
+			<img style="margin-top:10px" src="img/flight_query.png"/>
+			<table class="flight">
+				<tr class="th_list">
+					<th width="45">ID</th>
+					<th width="50">商务舱</th>
+					<th width="50">经济舱</th>
+					<th width="70">起飞时间</th>
+					<th width="70">到达时间</th>
+					<th width="50">起点站</th>
+					<th width="50">终点站</th>
+					<th width="40">商务舱价格</th>
+					<th width="40">经济舱价格</th>
+					<th width="75">备注</th>
+				</tr>
 
 <?php
   if (!empty($flight_data)) {
