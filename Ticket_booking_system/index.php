@@ -78,7 +78,8 @@ Author: Pan Yue, zxc479773533@gmail.com
 		</div>
 		<div class="functions">
 			<ul style="list-style-type: none;">
-				<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
+				<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="index.php"><img src="img/home_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
@@ -134,7 +135,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td style="background: #ffffff">'.$queryline['EndStation'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['BPrice'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['NPrice'].'</td>';
-			echo '<td style="background: #ffffff">'.'预定'.'</td>';
+			echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
 		}
 		else {
 			echo '<td>'.$queryline['Flightno'].'</td>';
@@ -146,7 +147,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td>'.$queryline['EndStation'].'</td>';
 			echo '<td>'.$queryline['BPrice'].'</td>';
 			echo '<td>'.$queryline['NPrice'].'</td>';
-			echo '<td>'.'预定'.'</td>';
+			echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
 		}
 		echo '<tr/>';
 	}

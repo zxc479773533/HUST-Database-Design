@@ -165,7 +165,17 @@
 	cursor: pointer;
 }
 
-
+.booting_btn {
+	font-size: 12px;
+	height: 25px;
+	width: 60px;
+	background:#00a7de;
+	color: #ffffff;
+	border: 1px solid #0381aa;
+	border-radius: 2px;
+	text-align: center;
+	cursor: pointer;
+}
 
 
 
