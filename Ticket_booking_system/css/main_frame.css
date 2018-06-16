@@ -32,7 +32,8 @@
 
 .info {
 	border: 1px solid rgb(187,187,187);
-	margin: 10px;
+	border-radius: 10px;
+	margin: 7px;
 	width: 300px;
 	height: 280px;
 }
@@ -77,6 +78,14 @@
 	background: #ff9966;
 }
 
+.select {
+	border: 3px ridge #00a7de;
+	border-radius: 5px;
+	margin: 15px;
+	width: 550px;
+	height: 100px;
+}
+
 .query {
 	margin: 5px;
 	width: 570px;
@@ -110,12 +119,51 @@
 	border-top: 1px solid #b0cedd;
 }
 
+.query_input {
+	font-family: '华文细黑';
+}
 
+.query_input ul li{
+	font-size: 15px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: -40px;
+	float: left;
+}
 
+.querytxt {
+	float: left;
+	height: 20px;
+}
 
+.query_lable {
+	display: block;
+	width: 80px;
+	padding-right: 2px;
+	text-align: right;
+	float: left;
+}
 
+.query_submit {
+	border-left: 2px ridge#00a7de;
+	float: right;
+	margin-top: -50px;
+	height: 85px;
+	width: 120px;
+}
 
-
+.query_btn {
+	margin-top: 25px;
+	margin-left: 20px;
+	height: 30px;
+	width: 80px;
+	background: #FF7600;
+	color: #ffffff;
+	border: 1px solid #FF5F00;
+	border-radius: 2px;
+	text-align: center;
+	cursor: pointer;
+}
 
 
 
