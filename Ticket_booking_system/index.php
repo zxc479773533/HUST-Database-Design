@@ -13,14 +13,15 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <script type="text/javascript" src="js/banner.js"></script>
 <script type="text/javascript">
-	$(function(){   
-    var leftHeight= $(".user_info").height();   
-    var rightHeight= $(".query_result").height();   
-    if (leftHeight > rightHeight) {   
-          $(".query_result").height(leftHeight);   
-    } else {   
-         $(".user_info").height(rightHeight);   
-    }   
+	$(function(){
+    var leftHeight= $(".user_info").height();
+    var rightHeight= $(".query_result").height();
+    if (leftHeight > rightHeight) {
+      $(".query_result").height(leftHeight);
+		}
+		else {
+      $(".user_info").height(rightHeight);   
+    }
 	});
 </script>
 <div class="header"></div>
@@ -87,7 +88,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 		</div>
 		<div class="query_result">
 			<div class="banner">
-				<div class=banner_pic>
+				<div class="banner_pic">
 					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner1.png"/></a>
 					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner2.png"/></a>
 					<a href="#" style="display: none;"><img style="display: block;" alt="#" src="img/banner3.png"/></a>
@@ -104,7 +105,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 				<img style="margin-top:10px" src="img/today_flight.png"/>
 				<table class="today_flight">
 					<tr class="th_list">
-						<th width="30">ID</th>
+						<th width="45">ID</th>
 						<th width="50">商务舱</th>
 						<th width="50">经济舱</th>
 						<th width="70">起飞时间</th>
@@ -113,14 +114,13 @@ Author: Pan Yue, zxc479773533@gmail.com
 						<th width="50">终点站</th>
 						<th width="40">商务舱价格</th>
 						<th width="40">经济舱价格</th>
-						<th width="90">备注</th>
+						<th width="75">备注</th>
 					</tr>
 
 <?php
 	$query = "SELECT * FROM Flight WHERE DATE(Leavetime) = DATE(NOW()) order by Leavetime ASC LIMIT 15";
 	$data = mysqli_query($conn, $query);
 	$count = 0;
-	//$rownum = mysqli_num_rows($data);
 	foreach($data as $queryline) {
 		$count += 1;
 		echo '<tr>';

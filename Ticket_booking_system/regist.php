@@ -101,7 +101,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 					</li>
 				 	<li style="height: 20px;"></li>
 					<li style="padding-left: 200px;">
-            <input class="login-button" onclick="validate();" style="margin-left: 30px" type="submit" value="提交">
+            <input class="login-button" style="margin-left: 30px" type="submit" value="提交">
             <a href="login.php"><input class="regist-button" style="margin-left: 20px" type="button" value="返回"></a>
           </li>
 					<li style="height: 10px;"></li>
