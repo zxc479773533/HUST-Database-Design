@@ -90,7 +90,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 				<img style="margin-top:10px" src="img/list_price.png"/>
 				<table class="flight">
 					<tr class="th_list">
-						<th width="50">ID</th>
+						<th width="50">航班次</th>
 						<th width="55">商务舱<br/>容量</th>
 						<th width="55">经济舱<br/>容量</th>
 						<th width="70">起飞时间</th>

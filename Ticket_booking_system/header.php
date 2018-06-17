@@ -9,7 +9,8 @@ Author: Pan Yue, zxc479773533@gmail.com
   <meta charset="utf-8">
   <?php
     echo '<title>'.$page_title.' | 机票预订系统</title>';
-    if (($page_title == "登录") || ($page_title == "注册") || ($page_title == "个人中心")) {
+    if (($page_title == "登录") || ($page_title == "注册")
+     || ($page_title == "个人中心") || ($page_title == "订票")) {
       echo '<link href="css/login_frame.css" rel="stylesheet" type="text/css">';
     }
     else {

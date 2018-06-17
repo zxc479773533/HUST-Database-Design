@@ -106,7 +106,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			<img style="margin-top:10px" src="img/today_flight.png"/>
 			<table class="flight">
 				<tr class="th_list">
-					<th width="45">ID</th>
+					<th width="45">航班次</th>
 					<th width="50">商务舱</th>
 					<th width="50">经济舱</th>
 					<th width="70">起飞时间</th>
@@ -123,31 +123,42 @@ Author: Pan Yue, zxc479773533@gmail.com
 	$data = mysqli_query($conn, $query);
 	$count = 0;
 	foreach($data as $queryline) {
+		$flightid = $queryline['Flightid'];
+		$getseat = "SELECT SeatType, count(*) as Num FROM FlightSeats WHERE Flightid = '$flightid' and SeatUse = '0' group by SeatType";
+		$seatdata = mysqli_query($conn, $getseat);
+		$Brow = mysqli_fetch_array($seatdata);
+		$Crow = mysqli_fetch_array($seatdata);
 		$count += 1;
 		echo '<tr>';
 		if ($count % 2 == 0) {
 			echo '<td style="background: #ffffff">'.$queryline['Flightno'].'</td>';
-			echo '<td style="background: #ffffff">'.$queryline['BClass'].'</td>';
-			echo '<td style="background: #ffffff">'.$queryline['NClass'].'</td>';
+			echo '<td style="background: #ffffff">'.$Brow['Num'].'</td>';
+			echo '<td style="background: #ffffff">'.$Crow['Num'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Leavetime'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Arrivetime'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['StartStation'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['EndStation'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['BPrice'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['NPrice'].'</td>';
-			echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+			if ($Brow['Num'] || $Crow['Num'])
+				echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+			else
+				echo '<td style="background: #ffffff">预定</td>';
 		}
 		else {
 			echo '<td>'.$queryline['Flightno'].'</td>';
-			echo '<td>'.$queryline['BClass'].'</td>';
-			echo '<td>'.$queryline['NClass'].'</td>';
+			echo '<td>'.$Brow['Num'].'</td>';
+			echo '<td>'.$Crow['Num'].'</td>';
 			echo '<td>'.$queryline['Leavetime'].'</td>';
 			echo '<td>'.$queryline['Arrivetime'].'</td>';
 			echo '<td>'.$queryline['StartStation'].'</td>';
 			echo '<td>'.$queryline['EndStation'].'</td>';
 			echo '<td>'.$queryline['BPrice'].'</td>';
 			echo '<td>'.$queryline['NPrice'].'</td>';
-			echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+			if ($Brow['Num'] || $Crow['Num'])
+				echo '<td><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+			else
+				echo '<td>预定</td>';
 		}
 		echo '<tr/>';
 	}
