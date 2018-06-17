@@ -86,20 +86,20 @@ Author: Pan Yue, zxc479773533@gmail.com
 		<br style="clear:both;"/>
   </div>
   <div class="query_result">
-			<div class="query">
-				<img style="margin-top:10px" src="img/list_price.png"/>
-				<table class="flight">
-					<tr class="th_list">
-						<th width="50">航班次</th>
-						<th width="55">商务舱<br/>容量</th>
-						<th width="55">经济舱<br/>容量</th>
-						<th width="70">起飞时间</th>
-						<th width="70">到达时间</th>
-						<th width="50">起点站</th>
-						<th width="50">终点站</th>
-						<th width="60">商务舱<br/>价格</th>
-						<th width="60">经济舱<br/>价格</th>
-          </tr>
+		<div class="query">
+			<img style="margin-top:10px" src="img/list_price.png"/>
+			<table class="flight">
+				<tr class="th_list">
+					<th width="50">航班次</th>
+					<th width="55">商务舱<br/>容量</th>
+					<th width="55">经济舱<br/>容量</th>
+					<th width="70">起飞时间</th>
+					<th width="70">到达时间</th>
+					<th width="50">起点站</th>
+					<th width="50">终点站</th>
+					<th width="60">商务舱<br/>价格</th>
+					<th width="60">经济舱<br/>价格</th>
+        </tr>
 
 <?php
   $query = "SELECT * FROM Flight order by BPrice ASC";

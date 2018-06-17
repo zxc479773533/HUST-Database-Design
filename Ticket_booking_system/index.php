@@ -124,38 +124,52 @@ Author: Pan Yue, zxc479773533@gmail.com
 	$count = 0;
 	foreach($data as $queryline) {
 		$flightid = $queryline['Flightid'];
-		$getseat = "SELECT SeatType, count(*) as Num FROM FlightSeats WHERE Flightid = '$flightid' and SeatUse = '0' group by SeatType";
-		$seatdata = mysqli_query($conn, $getseat);
-		$Brow = mysqli_fetch_array($seatdata);
-		$Crow = mysqli_fetch_array($seatdata);
+		$getseat = "SELECT SeatType, count(*) as Num FROM FlightSeats WHERE Flightid = '$flightid' AND SeatUse = '0' AND SeatType = '商务舱' group by SeatType";
+		$Bseatdata = mysqli_query($conn, $getseat);
+		$Brow = mysqli_fetch_array($Bseatdata);
+		$getseat = "SELECT SeatType, count(*) as Num FROM FlightSeats WHERE Flightid = '$flightid' AND SeatUse = '0' AND SeatType = '经济舱' group by SeatType";
+		$Nseatdata = mysqli_query($conn, $getseat);
+		$Nrow = mysqli_fetch_array($Nseatdata);
 		$count += 1;
 		echo '<tr>';
 		if ($count % 2 == 0) {
 			echo '<td style="background: #ffffff">'.$queryline['Flightno'].'</td>';
-			echo '<td style="background: #ffffff">'.$Brow['Num'].'</td>';
-			echo '<td style="background: #ffffff">'.$Crow['Num'].'</td>';
+			if (isset($Brow['Num']))
+				echo '<td style="background: #ffffff">'.$Brow['Num'].'/'.$queryline['BClass'].'</td>';
+			else
+				echo '<td style="background: #ffffff">0/'.$queryline['BClass'].'</td>';
+			if (isset($Nrow['Num']))
+				echo '<td style="background: #ffffff">'.$Nrow['Num'].'/'.$queryline['NClass'].'</td>';
+			else
+				echo '<td style="background: #ffffff">0/'.$queryline['NClass'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Leavetime'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Arrivetime'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['StartStation'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['EndStation'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['BPrice'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['NPrice'].'</td>';
-			if ($Brow['Num'] || $Crow['Num'])
+			if ($Brow['Num'] || $Nrow['Num'])
 				echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
 			else
 				echo '<td style="background: #ffffff">预定</td>';
 		}
 		else {
 			echo '<td>'.$queryline['Flightno'].'</td>';
-			echo '<td>'.$Brow['Num'].'</td>';
-			echo '<td>'.$Crow['Num'].'</td>';
+			if (isset($Brow['Num']))
+				echo '<td>'.$Brow['Num'].'/'.$queryline['BClass'].'</td>';
+			else
+				echo '<td>0/'.$queryline['BClass'].'</td>';
+			if (isset($Nrow['Num']))
+				echo '<td>'.$Nrow['Num'].'/'.$queryline['NClass'].'</td>';
+			else
+				echo '<td>0/'.$queryline['NClass'].'</td>';
 			echo '<td>'.$queryline['Leavetime'].'</td>';
 			echo '<td>'.$queryline['Arrivetime'].'</td>';
 			echo '<td>'.$queryline['StartStation'].'</td>';
 			echo '<td>'.$queryline['EndStation'].'</td>';
 			echo '<td>'.$queryline['BPrice'].'</td>';
 			echo '<td>'.$queryline['NPrice'].'</td>';
-			if ($Brow['Num'] || $Crow['Num'])
+			if ($Brow['Num'] || $Nrow['Num'])
 				echo '<td><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
 			else
 				echo '<td>预定</td>';

@@ -27,7 +27,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <script type="text/javascript">
   function showPrice(value) {
-    if (value == "B") {
+    if (value == "商务舱") {
       <?php echo 'document.getElementById("price").innerHTML = '.$row['BPrice']; ?>
     }
     else {
@@ -60,8 +60,8 @@ Author: Pan Yue, zxc479773533@gmail.com
   echo '<li class="inputli"><span class="lable">起飞时间：</span>'.$row['Arrivetime'].'</li>';
   echo '<li style="height: 5px;"></li>';
   echo '<li class="inputli"><span class="lable">座位类型：</span>';
-  echo '<input type="radio" name="seattype" value="B" onclick="showPrice(this.value)">商务舱';
-  echo '<input type="radio" name="seattype" value="N" onclick="showPrice(this.value)">经济舱</li>';
+  echo '<input type="radio" name="seattype" value="商务舱" onclick="showPrice(this.value)">商务舱';
+  echo '<input type="radio" name="seattype" value="经济舱" onclick="showPrice(this.value)">经济舱</li>';
   echo '<li style="height: 5px;"></li>';
   echo '<li class="inputli"><span class="lable">价格：</span><span id="price"></span></li>';
   echo '<li style="height: 5px;"></li>';

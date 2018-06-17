@@ -177,7 +177,17 @@
 	cursor: pointer;
 }
 
-
+.refund_btn {
+	font-size: 12px;
+	height: 25px;
+	width: 60px;
+	background:#FFA600;
+	color: #ffffff;
+	border: 1px solid #FF6400;
+	border-radius: 2px;
+	text-align: center;
+	cursor: pointer;
+}
 
 
 
