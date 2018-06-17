@@ -12,7 +12,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 ?>
 
 <script type="text/javascript">
-	$(function(){   
+	$(function() {   
     var leftHeight= $(".user_info").height();
     var rightHeight= $(".query_result").height();
     if (leftHeight > rightHeight) {
@@ -34,17 +34,19 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <?php
 	// check if user logined
-	if (!isset($_SESSION['user_id'])) {
+	if (!isset($_SESSION['user_id']) && !isset($_SESSION['admin_id'])) {
 		echo '<li style="margin-top: 50px"><h2>当前未登录</h2></li>';
 		echo '<li style="margin-top:30px"></li>';
-		echo '<li>欢迎来到机票预定系统!</li>';
-		echo '<li style="height: 40px;"></li>';
+		echo '<li>欢迎来到机票预定系统</li>';
+		echo '<li style="height: 10px;"></li>';
+		echo '<li>登录后方可预定机票</li>';
+		echo '<li style="height: 30px;"></li>';
 		echo '<li>';
 		echo '<a href="login.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="登录"></a>';
 		echo '<a href="regist.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="注册"></a>';
 		echo '</li>';
-	} else {
-		// get ticket data in database
+	} else if (isset($_SESSION['user_id'])) {
+		// get user data in database
 		$userid = $_SESSION['user_id'];
 		$username = $_SESSION['user_name'];
 		$query = "SELECT Sex, Age FROM User WHERE Userid = '$userid'";
@@ -74,8 +76,29 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<a href="editprofile.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="个人中心"></a>';
 		echo '<a href="logout.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
 		echo '</li>';
-  }
-  // Query flight
+	} else {
+		// get admin data in database
+		$userid = $_SESSION['admin_id'];
+		$username = $_SESSION['admin_name'];
+		$query = "SELECT Sex, Age FROM Admin WHERE Userid = '$userid'";
+		$data = mysqli_query($conn, $query);
+		$row = mysqli_fetch_array($data);
+		$usersex = $row['Sex'];
+		$userage = $row['Age'];
+		
+		echo '<li style="margin-left: -20px;"><h4>已登录用户</h4></li>';
+		echo '<li style="height: 20px;"></li>';
+		echo '<li>用户名：'.$username.' <span style="background: #FF0070; border-radius: 5px; font-size: 12px; padding: 3px; color: white">管理员</span></li>';
+		echo '<li style="height: 20px;"></li>';
+		echo '<li>性别：'.$usersex.'</li>';
+		echo '<li style="height: 20px;"></li>';
+		echo '<li>年龄：'.$userage.'</li>';
+		echo '<li style="height: 20px;"></li>';
+		echo '<li>';
+		echo '<a href="logout.php"><input style="height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
+		echo '</li>';
+	}
+	// Query flight
   $leave_station = mysqli_real_escape_string($conn, trim($_POST['LeaveStation']));
   $arrive_station = mysqli_real_escape_string($conn, trim($_POST['ArriveStation']));
   $leave_day = mysqli_real_escape_string($conn, trim($_POST['LeaveDay']));
@@ -83,20 +106,32 @@ Author: Pan Yue, zxc479773533@gmail.com
   if (!empty($leave_station) && !empty($arrive_station) && !empty($leave_day) && !empty($arrive_day)) {
     $query = "SELECT * FROM Flight WHERE StartStation = '$leave_station' AND EndStation = '$arrive_station' ".
     "AND DATE(Leavetime) = '$leave_day' AND DATE(Arrivetime) = '$arrive_day'";
-    $flight_data = mysqli_query($conn, $query);
-  }
+		$flight_data = mysqli_query($conn, $query);
+	}
 ?>
 
 			</ul>
 		</div>
 		<div class="functions">
 			<ul style="list-style-type: none;">
-				<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="index.php"><img src="img/home_button.png"/></a></li>
-				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
-				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
-				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
-				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="getticket.php"><img src="img/get_button.png"/></a></li>
-				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
+
+<?php
+	if (isset($_SESSION['admin_id'])) {
+		echo '<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="index.php"><img src="img/home_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="usermanage.php"><img src="img/user_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="flightmanage.php"><img src="img/flight_button.png"/></a></li>';
+	}
+	else {
+		echo '<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="index.php"><img src="img/home_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="getticket.php"><img src="img/get_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>';
+	}
+?>
+
 			</ul>
 		</div>
 		<br style="clear:both;"/>
@@ -135,7 +170,10 @@ Author: Pan Yue, zxc479773533@gmail.com
 					<th width="50">终点站</th>
 					<th width="40">商务舱价格</th>
 					<th width="40">经济舱价格</th>
-					<th width="75">备注</th>
+					<?php
+						if (isset($_SESSION['user_id']))
+							echo '<th width="75">备注</th>';
+					?>
 				</tr>
 
 <?php
@@ -167,10 +205,12 @@ Author: Pan Yue, zxc479773533@gmail.com
 				echo '<td style="background: #ffffff">'.$queryline['EndStation'].'</td>';
 				echo '<td style="background: #ffffff">'.$queryline['BPrice'].'</td>';
 				echo '<td style="background: #ffffff">'.$queryline['NPrice'].'</td>';
-				if ($Brow['Num'] || $Nrow['Num'])
-					echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
-				else
-					echo '<td style="background: #ffffff">预定</td>';
+				if (isset($_SESSION['user_id'])) {
+					if ($Brow['Num'] || $Nrow['Num'])
+						echo '<td style="background: #ffffff"><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+					else
+						echo '<td style="background: #ffffff">预定</td>';
+				}
 			}
 			else {
 				echo '<td>'.$queryline['Flightno'].'</td>';
@@ -188,10 +228,12 @@ Author: Pan Yue, zxc479773533@gmail.com
 				echo '<td>'.$queryline['EndStation'].'</td>';
 				echo '<td>'.$queryline['BPrice'].'</td>';
 				echo '<td>'.$queryline['NPrice'].'</td>';
-				if ($Brow['Num'] || $Nrow['Num'])
-					echo '<td><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
-				else
-					echo '<td>预定</td>';
+				if (isset($_SESSION['user_id'])) {
+					if ($Brow['Num'] || $Nrow['Num'])
+						echo '<td><a href="booting.php?flight='.$queryline['Flightid'].'"><input class="booting_btn" type="button" value="预定"></a></td>';
+					else
+						echo '<td>预定</td>';
+				}
 			}
 			echo '<tr/>';
     }

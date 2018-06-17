@@ -71,6 +71,7 @@
 	border: 1px solid #0381aa;
 	border-radius: 2px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .regist-button {
@@ -81,6 +82,7 @@
 	border: 1px solid #cccccc;
 	border-radius: 2px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .code {

@@ -12,13 +12,13 @@ Author: Pan Yue, zxc479773533@gmail.com
 ?>
 
 <script type="text/javascript">
-	$(function(){   
+	$(function() {   
     var leftHeight= $(".user_info").height();
     var rightHeight= $(".query_result").height();
     if (leftHeight > rightHeight) {
-          $(".query_result").height(leftHeight);
+      $(".query_result").height(leftHeight);
     } else {
-         $(".user_info").height(rightHeight);   
+      $(".user_info").height(rightHeight);   
     }
 	});
 </script>

@@ -13,7 +13,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <script type="text/javascript" src="js/banner.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(function() {
     var leftHeight= $(".user_info").height();
     var rightHeight= $(".query_result").height();
     if (leftHeight > rightHeight) {
@@ -40,7 +40,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 		$home_url = 'http://'.$_SERVER['HTTP_HOST'].'/login.php';
     header('Location: '.$home_url);
 	} else {
-		// get ticket data in database
+		// get user data in database
 		$userid = $_SESSION['user_id'];
 		$username = $_SESSION['user_name'];
 		$query = "SELECT Sex, Age FROM User WHERE Userid = '$userid'";

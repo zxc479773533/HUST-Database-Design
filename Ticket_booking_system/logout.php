@@ -6,7 +6,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 <?php
   session_start();
   // Check login status
-  if (isset($_SESSION['user_id'])) {
+  if (isset($_SESSION['user_id']) || isset($_SESSION['admin_id'])) {
     $_SESSION = array();
     session_destroy();
   }

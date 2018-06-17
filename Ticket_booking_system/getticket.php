@@ -13,7 +13,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <script type="text/javascript" src="js/banner.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(function() {
     var leftHeight= $(".user_info").height();
     var rightHeight= $(".query_result").height();
     if (leftHeight > rightHeight) {
