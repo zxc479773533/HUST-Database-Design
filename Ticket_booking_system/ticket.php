@@ -37,14 +37,8 @@ Author: Pan Yue, zxc479773533@gmail.com
 <?php
 	// check if user logined
 	if (!isset($_SESSION['user_id'])) {
-		echo '<li style="margin-top: 50px"><h2>当前未登录</h2></li>';
-		echo '<li style="margin-top:30px"></li>';
-		echo '<li>欢迎来到机票预定系统!</li>';
-		echo '<li style="height: 40px;"></li>';
-		echo '<li>';
-		echo '<a href="login.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="登录"></a>';
-		echo '<a href="regist.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="注册"></a>';
-		echo '</li>';
+		$home_url = 'http://'.$_SERVER['HTTP_HOST'].'/login.php';
+    header('Location: '.$home_url);
 	} else {
 		// get ticket data in database
 		$userid = $_SESSION['user_id'];
@@ -120,7 +114,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td style="background: #ffffff">'.$queryline['Seatid'].'</td>';
       echo '<td style="background: #ffffff">'.$queryline['SeatType'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Price'].'</td>';
-			echo '<td style="background: #ffffff"><a href="refund.php?flight='.$queryline['Reserveid'].'"><input class="refund_btn" type="button" value="退票"></a></td>';
+			echo '<td style="background: #ffffff"><a href="refund.php?reserve='.$queryline['Reserveid'].'"><input class="refund_btn" type="button" value="退票"></a></td>';
 		}
 		else {
 			echo '<td>'.$queryline['Flightno'].'</td>';
@@ -131,7 +125,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td>'.$queryline['Seatid'].'</td>';
       echo '<td>'.$queryline['SeatType'].'</td>';
 			echo '<td>'.$queryline['Price'].'</td>';
-			echo '<td><a href="refund.php?flight='.$queryline['Reserveid'].'"><input class="refund_btn" type="button" value="退票"></a></td>';
+			echo '<td><a href="refund.php?reserve='.$queryline['Reserveid'].'"><input class="refund_btn" type="button" value="退票"></a></td>';
 		}
 		echo '<tr/>';
 	}
