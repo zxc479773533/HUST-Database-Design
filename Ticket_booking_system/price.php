@@ -55,6 +55,9 @@ Author: Pan Yue, zxc479773533@gmail.com
 		$query = "SELECT * FROM FlightReserve WHERE Userid = '$userid'";
 		$data = mysqli_query($conn, $query);
 		$ticket_num = mysqli_num_rows($data);
+		$query = "SELECT COUNT(*) AS Num from Notification, Flight WHERE Notification.Flightid = Flight.Flightid AND DATE(Leavetime) = DATE(now()) + 1";
+		$data = mysqli_query($conn, $query);
+		$numdata = mysqli_fetch_array($data);
 		
 		echo '<li style="margin-left: -20px;"><h4>已登录用户</h4></li>';
 		echo '<li>用户名：'.$username.' <span style="background: #004CFF; border-radius: 5px; font-size: 12px; padding: 3px; color: white">普通用户</span></li>';
@@ -63,7 +66,9 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<li style="height: 10px;"></li>';
 		echo '<li>年龄：'.$userage.'</li>';
 		echo '<li style="height: 10px;"></li>';
-		echo '<li>待取票数：'.$ticket_num.'</li>';
+		echo '<li>已预定票数：'.$ticket_num.'</li>';
+		echo '<li style="height: 10px;"></li>';
+		echo '<li>待取票数：'.$numdata['Num'].'</li>';
 		echo '<li style="height: 20px;"></li>';
 		echo '<li>';
 		echo '<a href="editprofile.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="个人中心"></a>';
@@ -80,6 +85,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="regist.php"><img src="img/regist_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="ticket.php"><img src="img/ticket_button.png"/></a></li>
+				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="getticket.php"><img src="img/get_button.png"/></a></li>
 				<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="price.php"><img src="img/price_button.png"/></a></li>
 			</ul>
 		</div>

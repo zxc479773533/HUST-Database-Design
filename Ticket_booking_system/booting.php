@@ -74,7 +74,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 				 </ul>
       </form>
 		</div>
-		<img style="float: right; width: 160px; height: 160px; margin-top: 200px; margin-right: 50px;" src="img/editprofile.png"/>
+		<img style="float: right; width: 200px; height: 180px; margin-top: 180px; margin-right: 30px;" src="img/booting.png"/>
 	</div>
 </div>
 
