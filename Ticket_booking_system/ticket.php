@@ -105,7 +105,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 
 <?php
   $userid = $_SESSION['user_id'];
-	$query = "SELECT * FROM Flight, FlightReserve WHERE Flight.Flightid = FlightReserve.Flightid AND Userid = '$userid'";
+	$query = "SELECT * FROM Flight, FlightReserve WHERE Flight.Flightid = FlightReserve.Flightid AND Userid = '$userid' ORDER BY Leavetime ASC";
 	$data = mysqli_query($conn, $query);
 	$count = 0;
 	foreach($data as $queryline) {
