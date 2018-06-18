@@ -4,6 +4,8 @@
 
 华中科技大学 计算机科学与技术/物联网工程 2018 年春季数据库系统原理课程设计
 
+Copyright © 2018-2018 zxcpyp. Only for reference.
+
 ## About SQL query labs
 
 一些简单的SQL操作和备份练习
