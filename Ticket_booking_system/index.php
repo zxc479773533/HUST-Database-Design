@@ -113,6 +113,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="usermanage.php"><img src="img/user_button.png"/></a></li>';
 		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="query.php"><img src="img/query_button.png"/></a></li>';
 		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="flightmanage.php"><img src="img/flight_button.png"/></a></li>';
+		echo '<li style="margin-left: -39px; margin-top: 5px; width: 310px; cursor: pointer;"><a href="reservemanage.php"><img src="img/reserve_button.png"/></a></li>';
 	}
 	else {
 		echo '<li style="margin-left: -39px; width: 310px; cursor: pointer;"><a href="index.php"><img src="img/home_button.png"/></a></li>';
