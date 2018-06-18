@@ -1,5 +1,5 @@
 <!--
-HUST DBMS Design - deleteuser.php
+HUST DBMS Design - deleteflight.php
 
 Author: Pan Yue, zxc479773533@gmail.com
 -->
@@ -9,18 +9,21 @@ Author: Pan Yue, zxc479773533@gmail.com
   if (isset($_SESSION['admin_id'])) {
     // Connect to database
     require_once('connectdb.php');
-    $userid = $_GET['userid'];
-    $query = "SELECT * FROM FlightReserve WHERE Userid = '$userid'";
+    $flightid = $_GET['flightid'];
+
+    $query = "SELECT * FROM FlightReserve WHERE Flightid = '$flightid'";
     $data = mysqli_query($conn, $query);
     if (mysqli_num_rows($data) == 0) {
-      $query = "DELETE FROM User WHERE Userid = '$userid'";
-      mysqli_query($conn, $query);
+      $query1 = "DELETE FROM FlightSeats WHERE Flightid = '$flightid'";
+      $query2 = "DELETE FROM Flight WHERE Flightid = '$flightid'";
+      mysqli_query($conn, $query1);
+      mysqli_query($conn, $query2);
       mysqli_close();
-      $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/usermanage.php';
+      $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/flightmanage.php';
       header('Location: '.$home_url);
     }
     else {
-      $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/usermanage.php';
+      $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/flightmanage.php';
       header('Location: '.$home_url);
     }
   }

@@ -87,21 +87,21 @@ Author: Pan Yue, zxc479773533@gmail.com
 		</div>
 		<br style="clear:both;"/>
 	</div>
-		<div class="query_result">
-			<div class="query">
-				<img style="margin-top:10px" src="img/my_flight.png"/>
-				<table class="flight">
-					<tr class="th_list">
-						<th width="45">航班次</th>
-						<th width="50">起点站</th>
-						<th width="50">终点站</th>
-						<th width="70">起飞时间</th>
-						<th width="70">到达时间</th>
-						<th width="40">坐位号</th>
-						<th width="50">座位类型</th>
-						<th width="40">价格</th>
-						<th width="50">操作</th>
-          </tr>
+	<div class="query_result">
+		<div class="query">
+			<img style="margin-top:10px" src="img/my_flight.png"/>
+			<table class="flight">
+				<tr class="th_list">
+					<th width="45">航班次</th>
+					<th width="50">起点站</th>
+					<th width="50">终点站</th>
+					<th width="70">起飞时间</th>
+					<th width="70">到达时间</th>
+					<th width="40">坐位号</th>
+					<th width="50">座位类型</th>
+					<th width="40">价格</th>
+					<th width="50">操作</th>
+        </tr>
 
 <?php
   $userid = $_SESSION['user_id'];
