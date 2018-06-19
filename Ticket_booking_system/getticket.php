@@ -120,7 +120,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td style="background: #ffffff">'.$queryline['Seatid'].'</td>';
       echo '<td style="background: #ffffff">'.$queryline['SeatType'].'</td>';
 			echo '<td style="background: #ffffff">'.$queryline['Price'].'</td>';
-			echo '<td style="background: #ffffff"><a href="doticketing.php?reserve='.$queryline['Reserveid'].'"><input class="booting_btn" type="button" value="取票"></a></td>';
+			echo '<td style="background: #ffffff"><a href="printbill.php?reserve='.$queryline['Reserveid'].'"><input class="booting_btn" type="button" value="取票"></a></td>';
 		}
 		else {
 			echo '<td>'.$queryline['Flightno'].'</td>';
@@ -131,7 +131,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 			echo '<td>'.$queryline['Seatid'].'</td>';
       echo '<td>'.$queryline['SeatType'].'</td>';
 			echo '<td>'.$queryline['Price'].'</td>';
-			echo '<td><a href="doticketing.php?reserve='.$queryline['Reserveid'].'"><input class="booting_btn" type="button" value="取票"></a></td>';
+			echo '<td><a href="printbill.php?reserve='.$queryline['Reserveid'].'"><input class="booting_btn" type="button" value="取票"></a></td>';
 		}
 		echo '<tr/>';
 	}
