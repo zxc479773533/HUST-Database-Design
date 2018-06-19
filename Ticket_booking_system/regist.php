@@ -30,7 +30,7 @@ Author: Pan Yue, zxc479773533@gmail.com
   if (!empty($regist_username) && !empty($regist_password) && !empty($regist_password_again)
   && !empty($regist_sex) && !empty($regist_age) && !empty($regist_email) && !empty($regist_phone)) {
     if ($regist_password == $regist_password_again) {
-      if ($regist_vaildcode != $regist_vaildcode_again) {
+      if ($regist_vaildcode == $regist_vaildcode_again) {
         // Check if username existed
         $query = "SELECT * FROM User WHERE Username = '$regist_username'";
         $data = mysqli_query($conn, $query);
