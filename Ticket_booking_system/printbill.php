@@ -29,12 +29,6 @@ Author: Pan Yue, zxc479773533@gmail.com
   }
 ?>
 
-<script type="text/javascript">
-  function printPage() {
-    window.document.body.innerHTML = document.getElementById("login-form").innerHTML;   
-    
-  }
-</script>
 <div class="header"></div>
 <div class="main">
 	<div class="login-frame">
