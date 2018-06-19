@@ -55,7 +55,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 		$query = "SELECT * FROM FlightReserve WHERE Userid = '$userid'";
 		$data = mysqli_query($conn, $query);
 		$ticket_num = mysqli_num_rows($data);
-		$query = "SELECT COUNT(*) AS Num from Notification, Flight WHERE Notification.Flightid = Flight.Flightid AND DATE(Leavetime) = DATE(now()) + 1";
+		$query = "SELECT COUNT(*) AS Num from Notification, Flight WHERE Notification.Flightid = Flight.Flightid AND DATE(Leavetime) = DATE(NOW()) + 1 AND Userid = '$userid'";
 		$data = mysqli_query($conn, $query);
 		$numdata = mysqli_fetch_array($data);
 		
