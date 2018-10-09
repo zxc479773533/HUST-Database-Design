@@ -33,49 +33,10 @@ Author: Pan Yue, zxc479773533@gmail.com
 				<ul style="list-style-type: none; font-family: '华文细黑';">
 
 <?php
-	// check if user logined
-	if (!isset($_SESSION['user_id']) && !isset($_SESSION['admin_id'])) {
-		echo '<li style="margin-top: 50px"><h2>当前未登录</h2></li>';
-		echo '<li style="margin-top:30px"></li>';
-		echo '<li>欢迎来到机票预定系统</li>';
-		echo '<li style="height: 10px;"></li>';
-		echo '<li>登录后方可预定机票</li>';
-		echo '<li style="height: 30px;"></li>';
-		echo '<li>';
-		echo '<a href="login.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="登录"></a>';
-		echo '<a href="regist.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="注册"></a>';
-		echo '</li>';
-	} else if (isset($_SESSION['user_id'])) {
-		// get user data in database
-		$userid = $_SESSION['user_id'];
-		$username = $_SESSION['user_name'];
-		$query = "SELECT Sex, Age FROM User WHERE Userid = '$userid'";
-		$data = mysqli_query($conn, $query);
-		$row = mysqli_fetch_array($data);
-		$usersex = $row['Sex'];
-		$userage = $row['Age'];
-		$query = "SELECT * FROM FlightReserve WHERE Userid = '$userid'";
-		$data = mysqli_query($conn, $query);
-		$ticket_num = mysqli_num_rows($data);
-		$query = "SELECT COUNT(*) AS Num from Notification, Flight WHERE Notification.Flightid = Flight.Flightid AND DATE(Leavetime) = DATE(NOW()) + 1";
-		$data = mysqli_query($conn, $query);
-		$numdata = mysqli_fetch_array($data);
-		
-		echo '<li style="margin-left: -20px;"><h4>已登录用户</h4></li>';
-		echo '<li>用户名：'.$username.' <span style="background: #004CFF; border-radius: 5px; font-size: 12px; padding: 3px; color: white">普通用户</span></li>';
-		echo '<li style="height: 10px;"></li>';
-		echo '<li>性别：'.$usersex.'</li>';
-		echo '<li style="height: 10px;"></li>';
-		echo '<li>年龄：'.$userage.'</li>';
-		echo '<li style="height: 10px;"></li>';
-		echo '<li>已预定票数：'.$ticket_num.'</li>';
-		echo '<li style="height: 10px;"></li>';
-		echo '<li>待取票数：'.$numdata['Num'].'</li>';
-		echo '<li style="height: 20px;"></li>';
-		echo '<li>';
-		echo '<a href="editprofile.php"><input style="height: 30px; width: 80px; background-color: #00a7de; color: #ffffff; border: 1px solid #0381aa; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="个人中心"></a>';
-		echo '<a href="logout.php"><input style="margin-left: 40px; height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
-		echo '</li>';
+	// check if admin logined
+	if (!isset($_SESSION['admin_id'])) {
+		$home_url = 'http://'.$_SERVER['HTTP_HOST'].'/index.php';
+    header('Location: '.$home_url);
 	} else {
 		// get admin data in database
 		$userid = $_SESSION['admin_id'];
@@ -98,6 +59,7 @@ Author: Pan Yue, zxc479773533@gmail.com
 		echo '<a href="logout.php"><input style="height: 30px; width: 80px; background-color: #ffffff; color: #555555; border: 1px solid #cccccc; border-radius: 2px; text-align: center; cursor: pointer;" type="button" value="退出"></a>';
 		echo '</li>';
 	}
+
 	// Query flight
   $username = mysqli_real_escape_string($conn, trim($_POST['Username']));
   $query = "SELECT Userid FROM User WHERE Username = '$username'";
