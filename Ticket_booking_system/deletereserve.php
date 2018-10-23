@@ -19,8 +19,14 @@ Author: Pan Yue, zxc479773533@gmail.com
       $seattype = $row['SeatType'];
       $seatid = $row['Seatid'];
       $price = $row['Price'];
-      $query1 = "boot_delete('$reserveid', '$userid', '$flightid', '$seattype', '$seatid', '$price')";    
-      mysqli_query($conn, $query);
+      $query1 = "UPDATE FlightSeats SET SeatUse = '0' WHERE Flightid = '$flightid' and Seatid = '$seatid'";
+      $query2 = "DELETE FROM FlightReserve WHERE Reserveid = '$reserveid'";
+      $query3 = "DELETE FROM Notification WHERE Flightid = '$flightid' and Seatid = '$seatid'";
+      $query4 = "INSERT INTO Bill VALUES ('$userid', '$flightid', '$seattype', '$seatid', '$price', '1')";      
+      mysqli_query($conn, $query1);
+      mysqli_query($conn, $query2);
+      mysqli_query($conn, $query3);
+      mysqli_query($conn, $query4);
       mysqli_close();
       $home_url = 'http://'.$_SERVER['HTTP_HOST'].'/reservemanage.php';
       header('Location: '.$home_url);

@@ -30,8 +30,17 @@ Author: Pan Yue, zxc479773533@gmail.com
         $price = $flight_data['BPrice'];
       else
         $price = $flight_data['NPrice'];
-      $query = "boot_insert('$userid', '$boot_flight_id', '$boot_type', '$seatid', '$price')";
-      mysqli_query($conn, $query);
+      $query1 = "UPDATE FlightSeats SET SeatUse = '1' WHERE Flightid = '$boot_flight_id' and Seatid = '$seatid'";
+      $query2 = "INSERT INTO FlightReserve (Userid, Flightid, SeatType, Seatid, Price) VALUES".
+      "('$userid', '$boot_flight_id', '$boot_type', '$seatid', '$price')";
+      $query3 = "INSERT INTO Notification VALUES".
+      "('$userid', '$boot_flight_id', '$boot_type', '$seatid', '$price')";
+      $query4 = "INSERT INTO Bill VALUES".
+      "('$userid', '$boot_flight_id', '$boot_type', '$seatid', '$price', '0')";
+      mysqli_query($conn, $query1);
+      mysqli_query($conn, $query2);
+      mysqli_query($conn, $query3);
+      mysqli_query($conn, $query4);
       mysqli_close();
       require_once('dobootconfirm.php');
       exit();
